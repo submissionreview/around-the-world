@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="title" content="Around the World: Posture-Conditioned Locomotion on a Continuous-Rotation Quadruped">
+  <meta name="description" content="A single learned policy for throw recovery, multi-posture walking, and hardware variation on the MiNI-Q, a 270g continuous-rotation quadruped, deployed onboard.">
+  <meta name="keywords" content="quadruped locomotion, sim-to-real, continuous rotation, morphology conditioning, onboard inference, reinforcement learning, MiNI-Q, robotics">
+  <meta name="author" content="Anonymous Author(s)">
+  <meta name="robots" content="index, follow">
+  <meta name="language" content="English">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="">
+  <meta property="og:title" content="Around the World: Posture-Conditioned Locomotion on a Continuous-Rotation Quadruped">
+  <meta property="og:description" content="A single learned policy for throw recovery, multi-posture walking, and hardware variation on the MiNI-Q, a 270g continuous-rotation quadruped, deployed onboard.">
+  <meta property="og:url" content="https://natelincyber.github.io/around-the-world/">
+  <meta property="og:image" content="https://natelincyber.github.io/around-the-world/static/images/social_preview.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Around the World - Research Preview">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Around the World: Posture-Conditioned Locomotion on a Continuous-Rotation Quadruped">
+  <meta name="twitter:description" content="A single learned policy for throw recovery, multi-posture walking, and hardware variation on the MiNI-Q, a 270g continuous-rotation quadruped, deployed onboard.">
+  <meta name="twitter:image" content="https://natelincyber.github.io/around-the-world/static/images/social_preview.png">
+  <meta name="citation_title" content="Around the World: Posture-Conditioned Locomotion on a Continuous-Rotation Quadruped">
+  <meta name="citation_publication_date" content="2026">
+  <meta name="citation_conference_title" content="CoRL 2026">
+  <meta name="theme-color" content="#2563eb">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://ajax.googleapis.com">
+  <link rel="preconnect" href="https://cdn.jsdelivr.net">
+  <title>Around the World: Posture-Conditioned Locomotion on a Continuous-Rotation Quadruped</title>
+  <link rel="icon" type="image/x-icon" href="static/images/favicon.ico">
+  <link rel="apple-touch-icon" href="static/images/favicon.ico">
+  <link rel="stylesheet" href="static/css/bulma.min.css">
+  <link rel="stylesheet" href="static/css/index.css">
+  <link rel="preload" href="static/css/bulma-carousel.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <link rel="preload" href="static/css/bulma-slider.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <link rel="preload" href="static/css/fontawesome.all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <link rel="preload" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript>
+    <link rel="stylesheet" href="static/css/bulma-carousel.min.css">
+    <link rel="stylesheet" href="static/css/bulma-slider.min.css">
+    <link rel="stylesheet" href="static/css/fontawesome.all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  </noscript>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <script defer src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="https://documentcloud.adobe.com/view-sdk/main.js"></script>
+  <script defer src="static/js/fontawesome.all.min.js"></script>
+  <script defer src="static/js/bulma-carousel.min.js"></script>
+  <script defer src="static/js/bulma-slider.min.js"></script>
+  <script defer src="static/js/index.js"></script>
+</head>
+<body>
+
+  <div id="preloader">
+    <div class="preloader-spinner"></div>
+  </div>
+
+  <button class="scroll-to-top" onclick="scrollToTop()" title="Scroll to top" aria-label="Scroll to top">
+    <i class="fas fa-chevron-up"></i>
+  </button>
+
+  <main id="main-content">
+
+  <!-- ============================================ -->
+  <!-- FULL-SCREEN VIDEO BANNER -->
+  <!-- ============================================ -->
+  <section class="banner-hero" id="banner-hero">
+    <video class="banner-video" id="banner-video" autoplay muted loop playsinline preload="auto" poster="static/images/banner_poster.jpg">
+      <source src="static/videos/header_walking.mp4" type="video/mp4">
+    </video>
+    <div class="banner-content" id="banner-content">
+      <h1 class="banner-title">Around the World 🌎</h1>
+      <h2 class="banner-subtitle">Posture-Conditioned Locomotion on a Continuous-Rotation Quadruped</h2>
+    </div>
+  </section>
+
+  <!-- ============================================ -->
+  <!-- HEADER -->
+  <!-- ============================================ -->
+  <section class="hero">
+    <div class="hero-body">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered">
+          <div class="column has-text-centered">
+
+            <h1 class="title is-1 publication-title">Around the World: Posture-Conditioned Locomotion on a Continuous-Rotation Quadruped</h1>
+
+            <!-- TODO: Replace placeholder authors -->
+            <!-- <div class="is-size-5 publication-authors">
+              <span class="author-block">
+                <a href="#" target="_blank">First Author</a><sup>*</sup>,</span>
+              <span class="author-block">
+                <a href="#" target="_blank">Second Author</a><sup>*</sup>,</span>
+              <span class="author-block">
+                <a href="#" target="_blank">Third Author</a>
+              </span>
+            </div> -->
+
+            <div class="is-size-5 publication-authors">
+              <span class="author-block"><br>CoRL 2026 (Under Review)</span>
+              <!-- <span class="eql-cntrb"><small><br><sup>*</sup>Indicates Equal Contribution</small></span> -->
+            </div>
+
+            <div class="column has-text-centered">
+              <div class="publication-links">
+                <span class="link-block">
+                  <a href="#" target="_blank" class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon"><i class="fas fa-file-pdf"></i></span>
+                  <span>Paper</span>
+                </a>
+              </span>
+              <span class="link-block">
+                <a href="#" target="_blank" class="external-link button is-normal is-rounded is-dark">
+                <span class="icon"><i class="ai ai-arxiv"></i></span>
+                <span>arXiv</span>
+              </a>
+            </span>
+            <span class="link-block">
+              <a href="#" target="_blank" class="external-link button is-normal is-rounded is-dark">
+              <span class="icon"><i class="fab fa-github"></i></span>
+              <span>Code</span>
+            </a>
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div> 
+</section>
+
+
+<!-- ============================================ -->
+<!-- VIDEO -->
+<!-- ============================================ -->
+<section class="section" style="padding-top: 0.5rem;">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered">
+      <div class="column is-full">
+        <h2 class="title is-3 has-text-centered">Videos</h2>
+        <div style="display:flex; align-items:center; justify-content:center; gap:2rem;">
+          <div style="flex:none;">
+            <iframe style="display:block; height:300px; aspect-ratio:16/9;"
+              src="https://www.youtube.com/embed/4LxNCAjvh9M?si=YJZxCS9w0EPheMch"
+              title="YouTube video player" frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            <h3 class="subtitle has-text-centered is-6">Continuous Walking</h3>
+          </div>
+          <div style="flex:none;">
+            <iframe style="display:block; width:169px; height:300px;"
+              src="https://www.youtube.com/embed/cB3_PSLltPQ?si=cW0HvQmlyKNgKxN0"
+              title="YouTube video player" frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            <h3 class="subtitle has-text-centered is-6">Multiple Throws</h3>
+          </div>
+          <div style="flex:none;">
+            <iframe style="display:block; height:300px; aspect-ratio:16/9;"
+              src="https://www.youtube.com/embed/leLMORKqANU?si=8e8FOLAJxY2drpqQ"
+              title="YouTube video player" frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            <h3 class="subtitle has-text-centered is-6">Different Floors</h3>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================ -->
+<!-- ABSTRACT -->
+<!-- ============================================ -->
+<section class="section hero is-light">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            Closed-loop learned locomotion has matured on commercial quadrupeds but remains uncommon at the sub-kilogram scale. We present a single learned policy that handles throw recovery, multi-posture walking, and hardware variation on the MiNI-Q, a 270 g quadruped whose belt-driven legs rotate continuously through 360&deg;. The same trained network switches between posture targets on the joint torus T<sup>8</sup>, walks upright and inverted under a gravity-conditioned reference, and recovers from arbitrary spawn orientations, all without state machines or phase switching. We identify the Dynamixel XL330 actuators across their operating regimes, cross-validate the trained policy in MuJoCo, Isaac Gym, and Isaac Lab, and deploy a compact sub-100k-parameter network onboard at 50 Hz on a dual-microcontroller stack. We further train under foot-shape domain randomization and verify on hardware that the same policy walks across multiple printed lower-link variants swapped at test time. The result is a single learned controller for throw recovery, multi-posture walking, and hardware variation, all on the same miniature robot. Supplementary videos are available at <a href="https://natelincyber.github.io/around-the-world/" target="_blank">https://natelincyber.github.io/around-the-world/</a>.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================ -->
+<!-- SIMULATION -->
+<!-- ============================================ -->
+<section class="section">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-full">
+        <h2 class="title is-3 has-text-centered">Simulation</h2>
+        <div class="columns is-centered">
+          <div class="column">
+            <iframe width="100%" style="aspect-ratio:16/9; height:300px;" src="https://www.youtube.com/embed/v5gDaukvHaY?list=PL2_g3KqvclZHU41yKnC4UBMsVXGfhQOJD" title="massive number of robots" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            <h3 class="subtitle has-text-centered is-6">IsaacGym</h3>
+          </div>
+          <div class="column">
+            <iframe width="100%" style="aspect-ratio:16/9; height:300px;" src="https://www.youtube.com/embed/UF9NGO8P6zo?si=pH2Ydd5nZ4CYal89" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            <h3 class="subtitle has-text-centered is-6">IsaacLab</h3>
+          </div>
+          <div class="column">
+            <iframe width="100%" style="aspect-ratio:16/9; height:300px;" src="https://www.youtube.com/embed/_gShLPdr-B4?si=F79RJsvgPrTbwzoJ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            <h3 class="subtitle has-text-centered is-6">MuJoCo</h3>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================ -->
+<!-- LOCOMOTION -->
+<!-- ============================================ -->
+<section class="section hero is-light">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered">
+      <div class="column is-full">
+        <h2 class="title is-3 has-text-centered">Locomotion With Different Gaits</h2>
+
+        <!-- Row 1: upright gaits -->
+        <div class="columns is-centered">
+
+          <div class="column">
+            <iframe width="100%" style="aspect-ratio:16/9; min-height:220px;" src="https://www.youtube.com/embed/szjkFuPYiro?si=XAVDSbL3I0we-70N" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            <h3 class="subtitle has-text-centered is-6">ANYmal</h3>
+          </div>
+
+          <div class="column">
+            <iframe width="100%" style="aspect-ratio:16/9; min-height:220px;" src="https://www.youtube.com/embed/6GgQFjjsXqI?si=qF1oQx0VD5gW-gJD" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            <h3 class="subtitle has-text-centered is-6">Crouch</h3>
+          </div>
+
+          <div class="column">
+            <iframe width="100%" style="aspect-ratio:16/9; min-height:220px;" src="https://www.youtube.com/embed/Fe5GHVIp2eA?si=SURGoWSkyTH6k35t" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            <h3 class="subtitle has-text-centered is-6">Q8bot</h3>
+          </div>
+
+        </div>
+
+        <!-- Row 2: inverted gaits -->
+        <div class="columns is-centered">
+
+          <div class="column">
+            <iframe width="100%" style="aspect-ratio:16/9; min-height:220px;" src="https://www.youtube.com/embed/dXiZg62xko0?si=G75aiMAECjjpWlWC" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            <h3 class="subtitle has-text-centered is-6">Inverted ANYmal</h3>
+          </div>
+
+          <div class="column">
+            <iframe width="100%" style="aspect-ratio:16/9; min-height:220px;" src="https://www.youtube.com/embed/HbEIwO34w-g?si=tG-yr-TID6oBPS60" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            <h3 class="subtitle has-text-centered is-6">Inverted Crouch</h3>
+          </div>
+
+          <div class="column">
+            <iframe width="100%" style="aspect-ratio:16/9; min-height:220px;" src="https://www.youtube.com/embed/yKfOh2_5ACo?si=2JYxB2Y2_Gk0S5eQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            <h3 class="subtitle has-text-centered is-6">Inverted Q8bot</h3>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+
+<!-- ============================================ -->
+<!-- THROWS -->
+<!-- ============================================ -->
+<section class="section hero is-light">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered">
+      <div class="column is-full">
+        <h2 class="title is-3 has-text-centered">Throws</h2>
+        <div class="columns is-centered">
+
+          <div class="column">
+            <iframe width="100%" style="height:380px; display:block;"
+              src="https://www.youtube.com/embed/AQ47RdRtGaw?si=U15pfMEaAu-IXCLQ"
+              title="YouTube video player" frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            <h3 class="subtitle has-text-centered is-6">Upright Pitch</h3>
+          </div>
+
+          <div class="column">
+            <iframe width="100%" style="height:380px; display:block;"
+              src="https://www.youtube.com/embed/gFu6sW809zY?si=9ZTdMIUJtBh7h4nA"
+              title="YouTube video player" frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            <h3 class="subtitle has-text-centered is-6">Upright Roll</h3>
+          </div>
+
+          <div class="column">
+            <iframe width="100%" style="height:380px; display:block;"
+              src="https://www.youtube.com/embed/PMDXqLUjiuA?si=0iAXqoxCNyM5Ii8l"
+              title="YouTube video player" frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            <h3 class="subtitle has-text-centered is-6">Inverted Pitch</h3>
+          </div>
+
+          <div class="column">
+            <iframe width="100%" style="height:380px; display:block;"
+              src="https://www.youtube.com/embed/mVvt6I78yuE?si=0eHGcYugoo3ojvFD"
+              title="YouTube video player" frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            <h3 class="subtitle has-text-centered is-6">Inverted Roll</h3>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================ -->
+<!-- DISTURBANCE -->
+<!-- ============================================ -->
+<section class="section">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-full">
+        <h2 class="title is-3 has-text-centered">Disturbance</h2>
+        <div class="columns is-centered">
+          <div class="column">
+            <iframe width="100%" style="aspect-ratio:16/9; height:300px;" src="https://www.youtube.com/embed/_iKsQODN9hs?si=mZXTKKUXtElBSJWX" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            <h3 class="subtitle has-text-centered is-6">Flip</h3>
+          </div>
+          <div class="column">
+            <iframe width="100%" style="aspect-ratio:16/9; height:300px;" src="https://www.youtube.com/embed/nHrbrmaiE64?si=OqlUuIKIwLR-UuZi" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            <h3 class="subtitle has-text-centered is-6">Nudge</h3>
+          </div>
+          <div class="column">
+            <iframe width="100%" style="aspect-ratio:16/9; height:300px;" src="https://www.youtube.com/embed/hjoSQdjWrWU?si=pDYXbmgRn4zEZWE-" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            <h3 class="subtitle has-text-centered is-6">Breakdance</h3>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================ -->
+<!-- FOOT ITERATIONS -->
+<!-- ============================================ -->
+<section class="section hero is-light">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered">
+      <div class="column is-full">
+        <h2 class="title is-3 has-text-centered">Foot Iterations</h2>
+
+        <div class="columns is-centered is-vcentered">
+          <div class="column is-half">
+            <img src="static/images/feetpics.png" alt="Photo of all feet variants" loading="lazy" style="width:100%; aspect-ratio:16/9; object-fit:cover;"/>
+            <h3 class="subtitle has-text-centered is-6">Photo of all the Feet</h3>
+          </div>
+          <div class="column is-half">
+            <iframe width="100%" style="aspect-ratio:16/9;" src="https://www.youtube.com/embed/SwPjpktgLk4?si=Ip0sj7BMV1FkAutl" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            <h3 class="subtitle has-text-centered is-6">Changing Foot (less than 1 minute!)</h3>
+          </div>
+        </div>
+
+        <!-- Second video centered below -->
+        <div class="columns is-centered">
+          <div class="column is-half">
+            <iframe width="100%" style="aspect-ratio:16/9;" src="https://www.youtube.com/embed/WshcuuLh-ss?si=qROw9gBl7nKqG0Os" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            <h3 class="subtitle has-text-centered is-6">Walking with Different Feet</h3>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================ -->
+<!-- EXTRAS -->
+<!-- ============================================ -->
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered">
+      <div class="column is-full">
+        <h2 class="title is-3 has-text-centered">Additional Results</h2>
+        <div class="columns is-centered">
+
+          <div class="column">
+            <iframe width="100%" style="aspect-ratio:16/9;" src="https://www.youtube.com/embed/YsYYdyjCa6M?si=iDCW63JdW8hep_6C" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            <h3 class="subtitle has-text-centered is-6">Different MiNIQ</h3>
+          </div>
+
+          <div class="column">
+            <iframe width="100%" style="aspect-ratio:16/9;" src="https://www.youtube.com/embed/iePLLaw362M?si=kNDI_kXUfY7OgiR4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            <h3 class="subtitle has-text-centered is-6">Attitude Control (Roll Pitch)</h3>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+<!-- ============================================ -->
+<!-- BibTeX -->
+<!-- ============================================ -->
+<section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <div class="bibtex-header">
+      <h2 class="title">BibTeX</h2>
+      <button class="copy-bibtex-btn" onclick="copyBibTeX()" title="Copy BibTeX to clipboard">
+        <i class="fas fa-copy"></i>
+        <span class="copy-text">Copy</span>
+      </button>
+    </div>
+    <pre id="bibtex-code"><code>Coming soon once accepted! 😝</code></pre>
+  </div>
+</section>
+
+
+<footer class="footer">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+          <p>
+            This page was built using the <a href="https://github.com/eliahuhorwitz/Academic-project-page-template" target="_blank">Academic Project Page Template</a>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+  </main>
+  <script>
+    (function () {
+      var banner = document.getElementById('banner-hero');
+      var content = document.getElementById('banner-content');
+      var vid = document.getElementById('banner-video');
+
+      function onScroll() {
+        var scrollY = window.scrollY;
+        var bannerHeight = banner.offsetHeight;
+        var progress = Math.min(scrollY / bannerHeight, 1);
+
+        // Fade and slide up the text
+        if (content) {
+          content.style.opacity = 1 - progress * 2;
+          content.style.transform = 'translateY(' + (-progress * 60) + 'px)';
+        }
+
+        if (vid) {
+          vid.style.transform = 'translateY(' + (scrollY * 0.8) + 'px)';
+        }
+
+        // Parallax: slow the video background scroll
+        if (banner) {
+          banner.style.backgroundPositionY = (scrollY * 0.4) + 'px';
+        }
+      }
+
+      window.addEventListener('scroll', onScroll, { passive: true });
+    })();
+  </script>
+
+  <script>
+    (function () {
+      var preloader = document.getElementById('preloader');
+      var vid = document.querySelector('.banner-video');
+
+      function reveal() {
+        if (!preloader || preloader.classList.contains('hidden')) return;
+        preloader.classList.add('hidden');
+        setTimeout(function () {
+          if (preloader && preloader.parentNode) preloader.parentNode.removeChild(preloader);
+        }, 600);
+      }
+
+      if (!vid) { reveal(); return; }
+
+      vid.addEventListener('canplaythrough', reveal, { once: true });
+      vid.addEventListener('error', reveal, { once: true });
+      window.addEventListener('load', function () { setTimeout(reveal, 8000); });
+
+      if (vid.readyState >= 4) reveal();
+
+      if ('IntersectionObserver' in window) {
+        var io = new IntersectionObserver(function (entries) {
+          entries.forEach(function (e) {
+            if (e.isIntersecting) {
+              var p = vid.play();
+              if (p && p.catch) p.catch(function () {});
+            } else {
+              vid.pause();
+            }
+          });
+        }, { threshold: 0.1 });
+        io.observe(vid);
+      }
+    })();
+  </script>
+</body>
+</html>
